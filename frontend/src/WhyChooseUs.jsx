@@ -17,7 +17,7 @@ const features = [
   {
     icon: <BadgeCheck className="w-6 h-6" />,
     title: "Vaastu-Compliant Homes",
-    text: "425 thoughtfully designed residences with spacious 2, 3.5 & 4.5 BHK layouts.",
+    text: "425 thoughtfully designed residences with spacious 3.5 & 4.5 BHK layouts.",
   },
   {
     icon: <Eye className="w-6 h-6" />,

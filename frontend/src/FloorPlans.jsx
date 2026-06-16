@@ -2,48 +2,48 @@ import React, { useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 /* ================= TOWER A FLOOR PLANS ================= */
-import towerAUnit1 from "./assets/tower-a-unit-1-3bhk-3587.PNG";
-import towerAUnit2 from "./assets/tower-a-unit-2-3bhk-3617.PNG";
-import towerAUnit3 from "./assets/tower-a-unit-3-3bhk-3678.PNG";
-import towerAUnit4 from "./assets/tower-a-unit-4-3bhk-3671.PNG";
+import towerAUnit1 from "./assets/tower-a-unit-1-3bhk-3587.png";
+import towerAUnit2 from "./assets/tower-a-unit-2-3bhk-3617.png";
+import towerAUnit3 from "./assets/tower-a-unit-3-3bhk-3678.png";
+import towerAUnit4 from "./assets/tower-a-unit-4-3bhk-3671.png";
 
 /* ================= TOWER B FLOOR PLANS ================= */
-import towerBUnit1 from "./assets/tower-b-unit-1-4bhk-4545.PNG";
-import towerBUnit2 from "./assets/tower-b-unit-2-4bhk-4549.PNG";
-import towerBUnit3 from "./assets/tower-b-unit-3-4bhk-4622.PNG";
-import towerBUnit4 from "./assets/tower-b-unit-4-4bhk-4621.PNG";
+import towerBUnit1 from "./assets/tower-b-unit-1-4bhk-4545.png";
+import towerBUnit2 from "./assets/tower-b-unit-2-4bhk-4549.png";
+import towerBUnit3 from "./assets/tower-b-unit-3-4bhk-4622.png";
+import towerBUnit4 from "./assets/tower-b-unit-4-4bhk-4621.png";
 
 const floorPlanData = [
   {
     id: "tower-a",
     label: "Tower A",
-    subtitle: "3 BHK Residences",
+    subtitle: "3.5 BHK Residences",
     plans: [
       {
         img: towerAUnit1,
         title: "Tower A - Unit 1",
-        type: "3 BHK",
+        type: "3.5 BHK",
         size: "3,587 SFT",
         facing: "East Facing",
       },
       {
         img: towerAUnit2,
         title: "Tower A - Unit 2",
-        type: "3 BHK",
+        type: "3.5 BHK",
         size: "3,617 SFT",
         facing: "West Facing",
       },
       {
         img: towerAUnit3,
         title: "Tower A - Unit 3",
-        type: "3 BHK",
+        type: "3.5 BHK",
         size: "3,678 SFT",
         facing: "East Facing",
       },
       {
         img: towerAUnit4,
         title: "Tower A - Unit 4",
-        type: "3 BHK",
+        type: "3.5 BHK",
         size: "3,671 SFT",
         facing: "West Facing",
       },
@@ -57,28 +57,28 @@ const floorPlanData = [
       {
         img: towerBUnit1,
         title: "Tower B - Unit 1",
-        type: "4 BHK",
+        type: "4.5 BHK",
         size: "4,545 SFT",
         facing: "East Facing",
       },
       {
         img: towerBUnit2,
         title: "Tower B - Unit 2",
-        type: "4 BHK",
+        type: "4.5 BHK",
         size: "4,549 SFT",
         facing: "West Facing",
       },
       {
         img: towerBUnit3,
         title: "Tower B - Unit 3",
-        type: "4 BHK",
+        type: "4.5 BHK",
         size: "4,622 SFT",
         facing: "East Facing",
       },
       {
         img: towerBUnit4,
         title: "Tower B - Unit 4",
-        type: "4 BHK",
+        type: "4.5 BHK",
         size: "4,621 SFT",
         facing: "West Facing",
       },

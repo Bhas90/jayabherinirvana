@@ -14,7 +14,7 @@ answer:
 {
 question: "What types of flats are available?",
 answer:
-"Jayabheri The Pinnacle offers luxury 3 BHK and 4 BHK residences thoughtfully designed with spacious layouts, premium specifications and panoramic views.",
+"Jayabheri The Pinnacle offers luxury 3.5 BHK and 4.5 BHK residences thoughtfully designed with spacious layouts, premium specifications and panoramic views.",
 },
 {
 question: "What is the size range of flats?",

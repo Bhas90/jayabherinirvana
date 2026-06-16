@@ -5,7 +5,7 @@ import { Building2, ArrowRight } from "lucide-react";
 const pricingRows = [
   {
     tower: "Tower A",
-    configuration: "3 BHK Residences",
+    configuration: "3.5 BHK Residences",
     size: "3587 - 3678 SFT",
     units: "Unit 1, 2, 3 & 4",
     facing: "East & West Facing",
@@ -15,7 +15,7 @@ const pricingRows = [
   },
   {
     tower: "Tower B",
-    configuration: "4 BHK Residences",
+    configuration: "4.5 BHK Residences",
     size: "4545 - 4622 SFT",
     units: "Unit 1, 2, 3 & 4",
     facing: "East & West Facing",

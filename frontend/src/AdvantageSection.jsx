@@ -10,7 +10,7 @@ import {
 const advantages = [
   "Iconic 55-storey twin towers in Kokapet",
   "425 vaastu-compliant luxury residences",
-  "Spacious 3 BHK & 4 BHK unit layouts",
+  "Spacious 3.5 BHK & 4.5 BHK unit layouts",
   "Premium residences from 3587 to 4622 SFT",
   "Prime connectivity to Financial District & ORR",
   "75,000 SFT premium tower amenities",
@@ -37,7 +37,7 @@ const AdvantageSection = () => {
   const displayPhone = "+91 96521 43222";
 
   const whatsappMessage = encodeURIComponent(
-    "Hi, I'm interested in Jayabheri The Pinnacle at Kokapet. Please share the brochure, latest price list, floor plans, availability, and site visit details."
+    "Hi, I'm interested in Jayabheri The Pinnacle at Kokapet. Please share the Brochure, Pricing and all the other details."
   );
 
   const handleCallClick = () => {

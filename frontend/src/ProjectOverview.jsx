@@ -16,7 +16,7 @@ const projectStats = [
   },
   {
     icon: <Home className="w-7 h-7" />,
-    title: "2, 3.5 & 4.5 BHK",
+    title: "3.5 & 4.5 BHK",
     subtitle: "Luxury Residences",
   },
   {
