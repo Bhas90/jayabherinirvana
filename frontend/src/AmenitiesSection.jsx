@@ -1,147 +1,119 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import {
+  Building2,
+  Trees,
+  Activity,
+  Baby,
+  Home,
+  Dumbbell,
+  Users,
+  Coffee,
+  Bike,
+  ShieldCheck,
+  Waves,
+  Gamepad2,
+  Car,
+  Landmark,
+  Leaf,
+  Cctv,
+  Droplets,
+  BriefcaseBusiness,
+} from "lucide-react";
 
-/* ================= IMAGES ================= */
+const amenities = [
+  { icon: <Building2 size={34} />, label: "55-Storey Twin Towers" },
+  { icon: <Waves size={34} />, label: "Infinity Swimming Pool" },
+  { icon: <Dumbbell size={34} />, label: "Premium Fitness Center" },
 
-import amenity1 from "./assets/badminton.webp";
-import amenity2 from "./assets/half-basket-ball-court.png";
-import amenity3 from "./assets/gym.webp";
-import amenity4 from "./assets/hall.webp";
-import amenity5 from "./assets/kids-play-area.png";
-import amenity6 from "./assets/jagsons-pride-rooftop-swimming-pool.jpg";
-import amenity7 from "./assets/walking_area.webp";
-import amenity8 from "./assets/jagsons-pride-saloon-lundry.png";
-import amenity9 from "./assets/Yoga-and-meditation-hall.png";
-import amenity10 from "./assets/jagsons-pride-EV-charging.webp";
-import amenity11 from "./assets/jagsons-pride-supermarket.png";
-import amenity12 from "./assets/jagsons-pride-indoor-games.png";
-import amenity13 from "./assets/jagsons-pride-cricket-practice-net.webp";
-import amenity14 from "./assets/jagsons-pride-multipurpose-hall.png";
-import amenity15 from "./assets/senior-citizen-plaza.png";
-import amenity16 from "./assets/temple.png";
-import amenity17 from "./assets/central-park.png";
-import amenity18 from "./assets/pickl-ball-court.png";
+  { icon: <BriefcaseBusiness size={34} />, label: "Business Lounge" },
+  { icon: <Coffee size={34} />, label: "Café & Lounge Spaces" },
+  { icon: <Users size={34} />, label: "Multipurpose Hall" },
+  { icon: <Gamepad2 size={34} />, label: "Indoor Games Zone" },
+  { icon: <Baby size={34} />, label: "Kids Activity Area" },
 
-/* ================= DATA ================= */
+  { icon: <Activity size={34} />, label: "Jogging Track" },
+  { icon: <Bike size={34} />, label: "Outdoor Fitness Deck" },
+  { icon: <Trees size={34} />, label: "Biophilic Landscaping" },
+  { icon: <Leaf size={34} />, label: "Lush Green Spaces" },
+  { icon: <Car size={34} />, label: "Dedicated Parking" },
 
-const amenitiesData = [
-  {
-    id: "clubhouse",
-    label: "CLUBHOUSE AMENITIES",
-    images: [
-      { img: amenity3, title: "Air Conditioned Gymnasium" },
-      { img: amenity6, title: "Rooftop Swimming Pool" },
-      { img: amenity4, title: "Banquet Hall" },
-      { img: amenity9, title: "Yoga and Meditation Hall" },
-      { img: amenity8, title: "Salon and Laundry" },
-      { img: amenity11, title: "Supermarket" },
-      { img: amenity14, title: "Multipurpose Hall" },
-      { img: amenity12, title: "Indoor Games" },
-    ],
-  },
-  {
-    id: "outdoor",
-    label: "OUTDOOR AMENITIES",
-    images: [
-      { img: amenity2, title: "Half Basketball Court" },
-      { img: amenity13, title: "Cricket Practice Net" },
-      { img: amenity1, title: "Shuttle Badminton Court" },
-      { img: amenity5, title: "Kids Play Area" },
-      { img: amenity7, title: "Walking Track" },
-      { img: amenity18, title: "Pickle Ball Court" },
-      { img: amenity16, title: "Temple" },
-      { img: amenity15, title: "Senior Citizen Plaza" },
-      { img: amenity17, title: "Central Park" },
-      { img: amenity10, title: "EV Charging Station" },
-    ],
-  },
+  { icon: <ShieldCheck size={34} />, label: "24x7 Security" },
+  { icon: <Cctv size={34} />, label: "CCTV Surveillance" },
+  { icon: <Droplets size={34} />, label: "Water Features & Gardens" },
 ];
 
-/* ================= COMPONENT ================= */
-
 const AmenitiesSection = () => {
-  const [selected, setSelected] = useState("clubhouse");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showMore, setShowMore] = useState(false);
 
-  // SAFE active tab
-  const activeTab =
-    amenitiesData.find((a) => a.id === selected) || amenitiesData[0];
-
-  /* ---------- Auto Slide ---------- */
-  useEffect(() => {
-    setCurrentIndex(0);
-
-    const interval = setInterval(() => {
-      setCurrentIndex(
-        (prev) => (prev + 1) % activeTab.images.length
-      );
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, [selected]);
-
-  // SAFE visible images
-  const visibleImages = activeTab.images
-    .map((_, i) => activeTab.images[(currentIndex + i) % activeTab.images.length])
-    .slice(0, Math.min(3, activeTab.images.length));
+  const visibleAmenities = showMore
+    ? amenities
+    : amenities.slice(0, 10);
 
   return (
-    <section className="bg-[#f7f7f6] py-20 px-4">
-      <div className="max-w-7xl mx-auto text-center">
+    <section
+      id="amenities"
+      className="relative bg-gradient-to-b from-[#f4f9fa] via-white to-[#edf7f8] py-16 md:py-20 px-4 overflow-hidden"
+    >
+      {/* Decorative Blur */}
+      <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
 
-        {/* ---------- HEADING ---------- */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-12">
-          Discover Thoughtfully Curated <br />
-          <span className="text-[#f97316]">Lifestyle Amenities</span>
+      <div className="relative max-w-7xl mx-auto text-center">
+        <p className="text-sm uppercase tracking-[4px] text-[#0B5C63] font-semibold mb-3">
+          World-Class Amenities
+        </p>
+
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#111111] mb-5">
+          Elevated Lifestyle at{" "}
+          <span className="text-[#0B5C63]">
+            Jayabheri The Pinnacle
+          </span>
         </h2>
 
-        {/* ---------- TABS ---------- */}
-        <div className="flex justify-center gap-4 mb-14 flex-wrap">
-          {amenitiesData.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => setSelected(id)}
-              className={`px-8 py-3 rounded-full text-sm md:text-base font-medium transition-all ${
-                selected === id
-                  ? "bg-black text-white"
-                  : "bg-white border border-gray-400 hover:bg-gray-100"
-              }`}
+        <div className="w-24 h-[3px] bg-[#0B5C63] mx-auto rounded-full mb-6"></div>
+
+        <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-600 leading-relaxed mb-12">
+          Experience luxury living with thoughtfully curated amenities,
+          premium recreational spaces, wellness zones, landscaped
+          environments, and exclusive lifestyle experiences designed for
+          modern urban families.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+          {visibleAmenities.map((item, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-2xl p-5 border border-[#0B5C63]/10 shadow-sm hover:shadow-2xl hover:border-[#0B5C63]/30 hover:-translate-y-1 transition-all duration-300"
             >
-              {label}
-            </button>
+              <div className="w-16 h-16 mx-auto rounded-full bg-[#0B5C63]/10 text-[#0B5C63] flex items-center justify-center mb-4 group-hover:bg-[#0B5C63] group-hover:text-white transition-all duration-300">
+                {item.icon}
+              </div>
+
+              <p className="text-sm md:text-[15px] font-semibold text-gray-800 leading-snug">
+                {item.label}
+              </p>
+            </div>
           ))}
         </div>
 
-        {/* ---------- IMAGE SLIDER ---------- */}
-        {activeTab.images.length > 0 && (
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+        {/* CTA Section */}
+        <div className="mt-12">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="px-8 py-3 rounded-full bg-[#0B5C63] text-white font-semibold shadow-md hover:bg-[#083E44] hover:shadow-xl transition-all duration-300"
+          >
+            {showMore
+              ? "Show Less Amenities"
+              : "View All Amenities"}
+          </button>
+        </div>
 
-            {visibleImages.map((item, index) => (
-              <div
-                key={index}
-                className="relative w-full md:w-1/3 overflow-hidden rounded-xl shadow-lg group"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-[240px] md:h-[300px] object-cover transition duration-700 group-hover:scale-105"
-                />
-
-                {/* ---------- TITLE OVERLAY ---------- */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur px-4 py-3">
-                  <p className="text-gray-900 font-medium tracking-wide text-center">
-                    {item.title}
-                  </p>
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-        )}
-
+        {/* Bottom Highlight */}
+       
       </div>
     </section>
   );
 };
 
 export default AmenitiesSection;
+

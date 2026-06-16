@@ -3,18 +3,20 @@ import React, { useEffect, useState } from "react";
 import AdvantageSection from "./AdvantageSection";
 import ProjectOverview from "./ProjectOverview";
 import AmenitiesSection from "./AmenitiesSection";
-import Banner from "./Banner";
+
 import ConnectivitySection from "./ConnectivitySection";
 import WhatsAppButton from "./WhatsAppButton";
 import PopupForm from "./PopupForm";
 import AttentionGrabberButton from "./AttentionGrabberButton";
-import ConstructionProgress from "./ConstructionProgress";
+import StudyAbroad from "./StudyAbroad";
 import WhyChooseUs from "./WhyChooseUs";
 import FaqSection from "./FaqSection";
 import HeroBanner from "./HeroBanner";
-import PlansSection from "./PlansSection";
-import CustomerReviews from "./CustomerReviews";
-import WalkthroughVideo from "./WalkthroughVideo";
+import GallerySection from "./GallerySection"
+import FloorPlans from "./FloorPlans"
+import DownloadBrochureButton from "./DownloadBrochureButton"
+import PricingSection from "./PricingSection";
+import LocationAdvantages from "./LocationAdvantages";
 
 
 const Home = () => {
@@ -38,32 +40,31 @@ const Home = () => {
         <h2 className="section-heading"></h2>
         <WhyChooseUs />
       </div>
-      <WalkthroughVideo />
       <div id="amenities">
         <h2 className="section-heading"></h2>
         <AmenitiesSection />
       </div>
-      <PlansSection/>
-      <div id="construction-progress">
-        <h2 className="section-heading"></h2>
-        <ConstructionProgress />
-      </div>
+      <GallerySection/>
+      <DownloadBrochureButton/>
+     
+      <FloorPlans/>
+       <PricingSection/>
       <div id="NRI-support">
         <h2 className="section-heading"></h2>
         <AdvantageSection />
       </div>
-      <div id="banner-section">
-        <Banner />
-      </div>
+      
       <div id="connectivity">
         <h2 className="section-heading"></h2>
         <ConnectivitySection />
+        <LocationAdvantages/>
       </div>
-      <CustomerReviews/>
+      
       <div id="faq">
         <h2 className="section-heading"></h2>
         <FaqSection />
       </div>
+      
       <WhatsAppButton />
       <PopupForm show={showPopup} onClose={() => setShowPopup(false)} />
     </>
