@@ -1,45 +1,130 @@
 import React, { useState } from "react";
 import {
-  Building2,
   Trees,
   Activity,
   Baby,
-  Home,
   Dumbbell,
   Users,
   Coffee,
-  Bike,
   ShieldCheck,
   Waves,
   Gamepad2,
-  Car,
   Landmark,
   Leaf,
-  Cctv,
-  Droplets,
+  Utensils,
+  BookOpen,
+  Volleyball,
+  Store,
+  Sparkles,
+  HeartPulse,
+  Theater,
+  BedDouble,
   BriefcaseBusiness,
+  Scissors,
+  BadgeDollarSign,
 } from "lucide-react";
 
 const amenities = [
-  { icon: <Building2 size={34} />, label: "55-Storey Twin Towers" },
-  { icon: <Waves size={34} />, label: "Infinity Swimming Pool" },
-  { icon: <Dumbbell size={34} />, label: "Premium Fitness Center" },
+  {
+    icon: <Waves size={32} />,
+    label: "Swimming Pool",
+  },
+  {
+    icon: <Baby size={32} />,
+    label: "Children's Pool",
+  },
+  {
+    icon: <Coffee size={32} />,
+    label: "Cafeteria",
+  },
+  {
+    icon: <Baby size={32} />,
+    label: "Crèche",
+  },
+  {
+    icon: <Users size={32} />,
+    label: "A/C Multipurpose Hall",
+  },
 
-  { icon: <BriefcaseBusiness size={34} />, label: "Business Lounge" },
-  { icon: <Coffee size={34} />, label: "Café & Lounge Spaces" },
-  { icon: <Users size={34} />, label: "Multipurpose Hall" },
-  { icon: <Gamepad2 size={34} />, label: "Indoor Games Zone" },
-  { icon: <Baby size={34} />, label: "Kids Activity Area" },
+  {
+    icon: <Volleyball size={32} />,
+    label: "Squash & Badminton Courts",
+  },
+  {
+    icon: <Dumbbell size={32} />,
+    label: "Gym & Exercise Deck",
+  },
+  {
+    icon: <HeartPulse size={32} />,
+    label: "Sauna & Spa",
+  },
+  {
+    icon: <Scissors size={32} />,
+    label: "Salon",
+  },
+  {
+    icon: <Gamepad2 size={32} />,
+    label: "Indoor Games",
+  },
 
-  { icon: <Activity size={34} />, label: "Jogging Track" },
-  { icon: <Bike size={34} />, label: "Outdoor Fitness Deck" },
-  { icon: <Trees size={34} />, label: "Biophilic Landscaping" },
-  { icon: <Leaf size={34} />, label: "Lush Green Spaces" },
-  { icon: <Car size={34} />, label: "Dedicated Parking" },
+  {
+    icon: <Leaf size={32} />,
+    label: "Yoga & Meditation Hall",
+  },
+  {
+    icon: <Activity size={32} />,
+    label: "Aerobics Hall",
+  },
+  {
+    icon: <BriefcaseBusiness size={32} />,
+    label: "Conference Halls",
+  },
+  {
+    icon: <BookOpen size={32} />,
+    label: "Business / Reading Lounge",
+  },
+  {
+    icon: <Theater size={32} />,
+    label: "Preview Theatre",
+  },
 
-  { icon: <ShieldCheck size={34} />, label: "24x7 Security" },
-  { icon: <Cctv size={34} />, label: "CCTV Surveillance" },
-  { icon: <Droplets size={34} />, label: "Water Features & Gardens" },
+  {
+    icon: <BedDouble size={32} />,
+    label: "A/C Guest Rooms",
+  },
+  {
+    icon: <BadgeDollarSign size={32} />,
+    label: "ATM Facility",
+  },
+  {
+    icon: <Store size={32} />,
+    label: "Convenience Store",
+  },
+  {
+    icon: <Activity size={32} />,
+    label: "Jogging Track",
+  },
+  {
+    icon: <Trees size={32} />,
+    label: "Landscaped Open Spaces",
+  },
+
+  {
+    icon: <Landmark size={32} />,
+    label: "Amphitheatre",
+  },
+  {
+    icon: <Volleyball size={32} />,
+    label: "Basketball Court",
+  },
+  {
+    icon: <Dumbbell size={32} />,
+    label: "Outdoor Fitness Station",
+  },
+  {
+    icon: <ShieldCheck size={32} />,
+    label: "24-Hour Security",
+  },
 ];
 
 const AmenitiesSection = () => {
@@ -52,68 +137,128 @@ const AmenitiesSection = () => {
   return (
     <section
       id="amenities"
-      className="relative bg-gradient-to-b from-[#f4f9fa] via-white to-[#edf7f8] py-16 md:py-20 px-4 overflow-hidden"
+      className="relative bg-[#151012] py-16 md:py-24 px-4 overflow-hidden"
     >
-      {/* Decorative Blur */}
-      <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(circle_at_top_left,#ffffff_1px,transparent_1px)] [background-size:26px_26px]" />
 
-      <div className="relative max-w-7xl mx-auto text-center">
-        <p className="text-sm uppercase tracking-[4px] text-[#0B5C63] font-semibold mb-3">
-          World-Class Amenities
-        </p>
+      {/* Nirvana red glow */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#E43E4C]/20 rounded-full blur-3xl" />
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#111111] mb-5">
-          Elevated Lifestyle at{" "}
-          <span className="text-[#0B5C63]">
-            Jayabheri The Pinnacle
-          </span>
-        </h2>
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#7D1F29]/30 rounded-full blur-3xl" />
 
-        <div className="w-24 h-[3px] bg-[#0B5C63] mx-auto rounded-full mb-6"></div>
+      <div className="relative max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end mb-12">
+          <div className="lg:col-span-5 text-center lg:text-left">
+            <p className="text-[#E43E4C] text-xs md:text-sm uppercase tracking-[5px] font-semibold">
+              Lifestyle Amenities
+            </p>
 
-        <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-600 leading-relaxed mb-12">
-          Experience luxury living with thoughtfully curated amenities,
-          premium recreational spaces, wellness zones, landscaped
-          environments, and exclusive lifestyle experiences designed for
-          modern urban families.
-        </p>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mt-4 leading-tight">
+              Crafted for
+              <br />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+              <span className="italic text-[#E43E4C]">
+                Elevated Living
+              </span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="border-l-4 border-[#E43E4C] pl-5 md:pl-7">
+              <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                Jayabheri The Nirvana brings together leisure, fitness,
+                wellness, recreation and social spaces through a thoughtfully
+                planned clubhouse and landscaped outdoor environment designed
+                for a refined contemporary lifestyle.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Amenities Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
           {visibleAmenities.map((item, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl p-5 border border-[#0B5C63]/10 shadow-sm hover:shadow-2xl hover:border-[#0B5C63]/30 hover:-translate-y-1 transition-all duration-300"
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-[1.6rem]
+                bg-white/[0.06]
+                border
+                border-white/10
+                p-5
+                text-center
+                hover:bg-[#E43E4C]
+                hover:-translate-y-1
+                transition-all
+                duration-300
+              "
             >
-              <div className="w-16 h-16 mx-auto rounded-full bg-[#0B5C63]/10 text-[#0B5C63] flex items-center justify-center mb-4 group-hover:bg-[#0B5C63] group-hover:text-white transition-all duration-300">
+              <div className="absolute -right-8 -top-8 w-20 h-20 rounded-full bg-[#E43E4C]/10 group-hover:bg-black/10 transition-all" />
+
+              <div
+                className="
+                  w-16
+                  h-16
+                  mx-auto
+                  rounded-full
+                  bg-[#E43E4C]/15
+                  text-[#E43E4C]
+                  flex
+                  items-center
+                  justify-center
+                  mb-4
+                  group-hover:bg-black
+                  group-hover:text-[#E43E4C]
+                  transition-all
+                  duration-300
+                "
+              >
                 {item.icon}
               </div>
 
-              <p className="text-sm md:text-[15px] font-semibold text-gray-800 leading-snug">
+              <p className="text-sm md:text-[15px] font-semibold text-white/90 leading-snug group-hover:text-white">
                 {item.label}
               </p>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-12">
+        {/* View All */}
+        <div className="mt-12 text-center">
           <button
             onClick={() => setShowMore(!showMore)}
-            className="px-8 py-3 rounded-full bg-[#0B5C63] text-white font-semibold shadow-md hover:bg-[#083E44] hover:shadow-xl transition-all duration-300"
+            className="
+              px-8
+              py-3
+              rounded-full
+              bg-[#E43E4C]
+              text-white
+              font-semibold
+              shadow-lg
+              hover:bg-white
+              hover:text-[#E43E4C]
+              transition-all
+              duration-300
+              inline-flex
+              items-center
+              gap-2
+            "
           >
+            <Sparkles size={18} />
+
             {showMore
               ? "Show Less Amenities"
               : "View All Amenities"}
           </button>
         </div>
-
-        {/* Bottom Highlight */}
-       
       </div>
     </section>
   );
 };
 
 export default AmenitiesSection;
-

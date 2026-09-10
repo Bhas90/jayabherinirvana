@@ -1,152 +1,251 @@
 import React, { useState } from "react";
-import heroVideo from "./assets/jayabheri-pinnacle-kokapet.mp4";
+import desktopBanner from "./assets/nirvana-banner.png";
+import mobileBanner from "./assets/Nirvana_mobile.jpg";
 import PopupForm from "./PopupForm";
 
 const HeroBanner = () => {
-const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
-const handleEnquiryClick = () => {
-window.dataLayer = window.dataLayer || [];
+  const handleEnquiryClick = () => {
+    window.dataLayer = window.dataLayer || [];
 
-window.dataLayer.push({
-  event: "jayabheri_hero_enquiry_click",
-  project_name: "Jayabheri The Pinnacle",
-  project_location: "Kokapet",
-  lead_source: "Hero Banner CTA",
-  page_url: window.location.href,
-});
+    window.dataLayer.push({
+      event: "jayabheri_nirvana_hero_enquiry_click",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
+      lead_source: "Hero Banner CTA",
+      page_url: window.location.href,
+    });
 
-setShowPopup(true);
+    setShowPopup(true);
+  };
 
-};
+  const handleViewDetails = () => {
+    window.dataLayer = window.dataLayer || [];
 
-const handleViewDetails = () => {
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "jayabheri_nirvana_view_details_click",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
+      section_name: "Project Overview",
+      page_url: window.location.href,
+    });
 
-window.dataLayer.push({
-  event: "jayabheri_view_details_click",
-  project_name: "Jayabheri The Pinnacle",
-  section_name: "Project Overview",
-  page_url: window.location.href,
-});
+    const section = document.getElementById("project-overview");
 
-const section = document.getElementById("project-overview");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
-if (section) {
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}
-
-};
-
-return (
-<> <section className="w-full bg-[#061f24] mt-[60px] overflow-hidden"> <div className="flex flex-col-reverse lg:flex-row min-h-[calc(100vh-60px)]">
-
-      {/* LEFT CONTENT */}
-      <div className="w-full lg:w-[32%] bg-gradient-to-br from-[#061f24] via-[#083E44] to-[#0B5C63] flex items-center justify-center lg:justify-start">
-        <div className="w-full px-5 sm:px-8 md:px-12 lg:px-10 xl:px-14 py-10 sm:py-12 lg:py-0 text-white text-center lg:text-left">
-
-          <p className="text-[#d8f3f5] text-xs sm:text-sm md:text-base tracking-[3px] sm:tracking-[4px] uppercase font-semibold mb-3 sm:mb-4">
-            Jayabheri The Pinnacle
-          </p>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-serif font-bold uppercase leading-tight">
-            A Private
-            <br className="hidden lg:block" />
-            World Of
-            <br className="hidden lg:block" />
-            Elegance
-          </h1>
-
-          <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
-            Luxury residences in Kokapet designed to redefine elevated
-            living with panoramic views, world-class amenities and
-            exceptional connectivity.
-          </p>
-
-          <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-8 sm:mt-10 max-w-md mx-auto lg:mx-0">
-            <div>
-              <h3 className="text-[#8ed9df] text-2xl sm:text-3xl md:text-4xl font-bold">
-                3.5 & 4.5
-              </h3>
-
-              <p className="text-[10px] sm:text-xs uppercase tracking-widest mt-2 text-white/90">
-                BHK Residences
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-[#8ed9df] text-2xl sm:text-3xl md:text-4xl font-bold">
-                ₹5.25 Cr*
-              </h3>
-
-              <p className="text-[10px] sm:text-xs uppercase tracking-widest mt-2 text-white/90">
-                Starting Price
-              </p>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row lg:flex-col xl:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
-
-            <button
-              onClick={handleEnquiryClick}
-              className="bg-[#8ed9df] text-[#061f24] px-7 py-3 text-center text-xs sm:text-sm font-semibold uppercase tracking-wide hover:bg-white transition-all duration-300 shadow-lg"
-            >
-              Enquire Now
-            </button>
-
-            <button
-              onClick={handleViewDetails}
-              className="border border-[#8ed9df] text-[#8ed9df] px-7 py-3 text-center text-xs sm:text-sm font-semibold uppercase tracking-wide hover:bg-[#8ed9df] hover:text-[#061f24] transition-all duration-300"
-            >
-              View Details
-            </button>
-
-          </div>
-
-          <p className="text-[10px] sm:text-[11px] text-white/70 mt-6 sm:mt-8 leading-relaxed">
-            TG RERA No: P02400006797
-            <br />
-            Building Permit No:
-            001689/BP/HMDA/0359/SKP/2023
-          </p>
-
-        </div>
-      </div>
-
-      {/* RIGHT VIDEO */}
-      <div className="w-full lg:w-[68%] h-[320px] sm:h-[420px] md:h-[520px] lg:h-auto relative bg-[#061f24]">
-
-        <video
-          className="w-full h-full object-cover"
-          src={heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+  return (
+    <>
+      <section className="w-full mt-[80px] bg-[#161012] overflow-hidden">
+        {/* DESKTOP / TABLET HERO */}
+        <div className="hidden md:block relative h-[600px] xl:h-[650px] overflow-hidden">
+          <img
+          src={desktopBanner}
+          alt="Jayabheri The Nirvana luxury apartments near Wipro Junction, Financial District"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061f24]/35 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#061f24]/40 lg:via-transparent lg:to-transparent" />
+          {/* Dark gradient from right to left */}
+          <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
 
-      </div>
+          <div className="relative z-10 min-h-[calc(100vh-140px)] flex items-center pt-10">
+            <div className="max-w-7xl mx-auto w-full px-4 lg:px-8 xl:px-12">
+              <div className="flex justify-end">
+                <div className="w-full max-w-xl text-white">
+                  <p className="text-[#E43E4C] text-sm uppercase tracking-[6px] font-semibold mb-4">
+                    Jayabheri The Nirvana
+                  </p>
 
-    </div>
-  </section>
+                  <h1 className="font-serif font-bold leading-[1.05] text-[38px] lg:text-[52px] xl:text-[64px]">
+                    Taking Your
+                    <br />
+                    Aspirations Higher
+                  </h1>
 
-  <PopupForm
-    show={showPopup}
-    onClose={() => setShowPopup(false)}
-    popupTitle="Request Jayabheri The Pinnacle Details"
-    submitButtonText="Submit Enquiry"
-    leadSource="Hero Banner Enquiry"
-  />
-</>
+                  <p className="mt-2 text-xl lg:text-2xl italic font-serif text-white/90">
+                    A Life Above the Ordinary
+                  </p>
 
-);
+                  <p className="mt-2 text-base text-white/80 leading-relaxed max-w-xl">
+                    Premium 3 & 3.5 BHK residences across a 7-acre gated
+                    community with 79% open space, located just 1.6 km from
+                    Wipro Junction on Q-City Road.
+                  </p>
+
+                  {/* 4 cards in 1 row */}
+                  <div className="grid grid-cols-3 gap-2 mt-2">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center">
+                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
+                        ₹2.04 Cr*
+                      </h3>
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                        Onwards
+                      </p>
+                    </div>
+
+                    <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center">
+                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
+                        3 & 3.5
+                      </h3>
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                        BHK Homes
+                      </p>
+                    </div>
+
+                    
+
+                    <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center">
+                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
+                        693
+                      </h3>
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                        Residences
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex gap-2">
+                    <button
+                      onClick={handleEnquiryClick}
+                      className="bg-[#E43E4C] text-white px-8 py-2.5 text-sm font-semibold uppercase tracking-wide hover:bg-white hover:text-[#E43E4C] transition-all duration-300 shadow-lg"
+                    >
+                      Enquire Now
+                    </button>
+
+                    <button
+                      onClick={handleViewDetails}
+                      className="border border-[#E43E4C] text-[#E43E4C] px-8 py-2.5 text-sm font-semibold uppercase tracking-wide hover:bg-[#E43E4C] hover:text-white transition-all duration-300"
+                    >
+                      View Details
+                    </button>
+                  </div>
+
+                  <p className="text-[11px] text-white/65 mt-7 leading-relaxed">
+                    TS RERA No: P02400003566
+                    <br />
+                    Images shown are for representation purposes only. T&C Apply.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE HERO */}
+        <div className="md:hidden bg-[#161012]">
+          <div className="w-full bg-black">
+            <img
+              src={mobileBanner}
+              alt="Jayabheri The Nirvana luxury apartments near Wipro Junction, Financial District"
+              className="w-full h-auto object-cover block"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+
+          <div className="relative -mt-10 z-10 px-5 pt-5 pb-8 text-white text-center bg-gradient-to-b from-[#161012] via-[#211619] to-[#161012] rounded-t-[30px]">
+            <p className="text-[#E43E4C] text-xs uppercase tracking-[4px] font-semibold mb-3">
+              Jayabheri The Nirvana
+            </p>
+
+            <h1 className="font-serif font-bold leading-[1.1] text-[38px]">
+              Taking Your
+              <br />
+              Aspirations Higher
+            </h1>
+
+            <p className="mt-4 text-lg italic font-serif text-white/90">
+              A Life Above the Ordinary
+            </p>
+
+            <p className="mt-5 text-sm text-white/75 leading-relaxed">
+              Premium 3 & 3.5 BHK residences across a 7-acre gated community
+              with 79% open space, just 1.6 km from Wipro Junction on Q-City
+              Road.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 mt-7">
+              <div className="bg-white/10 border border-white/15 rounded-2xl p-4">
+                <h3 className="text-[#E43E4C] text-xl font-bold">
+                  ₹2.04 Cr*
+                </h3>
+                <p className="text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                  Onwards
+                </p>
+              </div>
+
+              <div className="bg-white/10 border border-white/15 rounded-2xl p-4">
+                <h3 className="text-[#E43E4C] text-xl font-bold">
+                  3 & 3.5
+                </h3>
+                <p className="text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                  BHK Homes
+                </p>
+              </div>
+
+              <div className="bg-white/10 border border-white/15 rounded-2xl p-4">
+                <h3 className="text-[#E43E4C] text-xl font-bold">
+                  7
+                </h3>
+                <p className="text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                  Acres
+                </p>
+              </div>
+
+              <div className="bg-white/10 border border-white/15 rounded-2xl p-4">
+                <h3 className="text-[#E43E4C] text-xl font-bold">
+                  693
+                </h3>
+                <p className="text-[10px] uppercase tracking-widest mt-1 text-white/80">
+                  Residences
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-col gap-3">
+              <button
+                onClick={handleEnquiryClick}
+                className="bg-[#E43E4C] text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-wide hover:bg-white hover:text-[#E43E4C] transition-all duration-300"
+              >
+                Enquire Now
+              </button>
+
+              <button
+                onClick={handleViewDetails}
+                className="border border-[#E43E4C] text-[#E43E4C] px-8 py-3.5 text-sm font-semibold uppercase tracking-wide hover:bg-[#E43E4C] hover:text-white transition-all duration-300"
+              >
+                View Details
+              </button>
+            </div>
+
+            <p className="text-[10px] text-white/55 mt-6 leading-relaxed">
+              TS RERA No: P02400003566
+              <br />
+              Images shown are for representation purposes only. T&C Apply.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <PopupForm
+        show={showPopup}
+        onClose={() => setShowPopup(false)}
+        popupTitle="Request Jayabheri The Nirvana Details"
+        submitButtonText="Submit Enquiry"
+        leadSource="Jayabheri The Nirvana Hero Banner Enquiry"
+      />
+    </>
+  );
 };
 
 export default HeroBanner;

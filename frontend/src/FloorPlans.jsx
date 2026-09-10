@@ -52,7 +52,7 @@ const floorPlanData = [
   {
     id: "tower-b",
     label: "Tower B",
-    subtitle: "4 BHK Residences",
+    subtitle: "4.5 BHK Residences",
     plans: [
       {
         img: towerBUnit1,

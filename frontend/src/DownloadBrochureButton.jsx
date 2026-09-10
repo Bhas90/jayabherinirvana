@@ -6,28 +6,33 @@ const DownloadBrochureButton = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleDownloadBrochure = () => {
-  const link = document.createElement("a");
-  link.href = "/Jayabheri-the-pinnaclebrochure.pdf";
-  link.download = "Jayabheri-the-pinnacle-brochure.pdf";
+    const link = document.createElement("a");
 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    link.href = "/Nirvana_Brochure.pdf";
+    link.download = "Jayabheri-The-Nirvana-Brochure.pdf";
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "jayabheri_brochure_downloaded",
-    project_name: "Jayabheri The Pinnacle",
-    lead_source: "Sticky Brochure Button",
-    page_url: window.location.href,
-  });
-};
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
-    const openPopup = () => {
     window.dataLayer = window.dataLayer || [];
+
     window.dataLayer.push({
-      event: "jayabheri_brochure_button_click",
-      project_name: "Jayabheri The Pinnacle",
+      event: "jayabheri_nirvana_brochure_downloaded",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
+      lead_source: "Sticky Brochure Button",
+      page_url: window.location.href,
+    });
+  };
+
+  const openPopup = () => {
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      event: "jayabheri_nirvana_brochure_button_click",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
       lead_source: "Sticky Brochure Button",
       page_url: window.location.href,
     });
@@ -37,45 +42,45 @@ const DownloadBrochureButton = () => {
 
   return (
     <>
-      {/* Sticky Vertical Button */}
+      {/* Sticky Brochure Button */}
       <button
-  onClick={openPopup}
-  aria-label="Download Brochure"
-  className="
-    fixed
-    right-0
-    top-1/2
-    -translate-y-1/2
-    z-[999]
-    w-[60px]
-    h-[70px]
-    rounded-l-2xl
-    bg-[#061f24]
-    border-l-2
-    border-t-2
-    border-b-2
-    border-[#C8B27C]
-    text-[#C8B27C]
-    shadow-2xl
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:w-[70px]
-    hover:bg-[#0B5C63]
-  "
->
-  <Download size={28} strokeWidth={2.2} />
-</button>
+        onClick={openPopup}
+        aria-label="Download Jayabheri The Nirvana Brochure"
+        className="
+          fixed
+          right-0
+          top-[52%]
+          -translate-y-1/2
+          z-[999]
+          w-[60px]
+          h-[70px]
+          bg-[#111827]
+          text-[#E43E4C]
+          border-l
+          border-t
+          border-b
+          border-[#E43E4C]/40
+          shadow-2xl
+          flex
+          items-center
+          justify-center
+          transition-all
+          duration-300
+          hover:w-[72px]
+          hover:bg-[#E43E4C]
+          hover:text-white
+        "
+      >
+        <Download size={28} strokeWidth={2.2} />
+      </button>
 
-      {/* Popup */}
+      {/* Popup Form */}
       <PopupForm
         show={showPopup}
         onClose={() => setShowPopup(false)}
-        popupTitle="Download Jayabheri The Pinnacle Brochure"
+        popupTitle="Download Jayabheri The Nirvana Brochure"
         submitButtonText="Submit & Download Brochure"
-        leadSource="Jayabheri Pinnacle Brochure Download"
+        leadSource="Jayabheri The Nirvana Brochure Download"
         onSuccess={handleDownloadBrochure}
       />
     </>

@@ -7,13 +7,13 @@ const WhatsAppButton = () => {
   const phoneNumber = "919652143222";
 
   const message = encodeURIComponent(
-    "Hi, I am interested in Jaybheri The Pinnacle at Kokapet. Please share the brochure, pricing, floor plans, amenities, location details, and available offers."
+    "Hi, I'm interested in Jayabheri The Nirvana. Please share the Brochure, Floor Plans, Latest Pricing, Availability and Site Visit Details."
   );
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating((prev) => !prev);
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
@@ -22,9 +22,11 @@ const WhatsAppButton = () => {
     window.dataLayer = window.dataLayer || [];
 
     window.dataLayer.push({
-      event: "whatsapp_click",
-      project_name: "Jayabheri The Pinnacle",
-      project_location: "Kokapet",
+      event: "jayabheri_nirvana_whatsapp_click",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
+      project_type: "Luxury Apartments",
+      website_domain: "jayabherinirvana.in",
       lead_source: "Floating WhatsApp Button",
       whatsapp_number: phoneNumber,
       page_url: window.location.href,
@@ -37,7 +39,10 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleWhatsAppClick}
-      className={`whatsapp-float-btn ${isAnimating ? "active" : ""}`}
+      className={`whatsapp-float-btn ${
+        isAnimating ? "active" : ""
+      }`}
+      aria-label="WhatsApp Jayabheri The Nirvana"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

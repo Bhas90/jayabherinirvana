@@ -1,112 +1,74 @@
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Images,
+} from "lucide-react";
 
-/* ================= AMENITIES IMAGES ================= */
-import amphitheatre from "./assets/jayabheri-pinnacle-amphitheatre.webp";
-import coworkingLobby from "./assets/jayabheri-pinnacle-coworking-lobby.webp";
-import eldersMeeting from "./assets/jayabheri-pinnacle-elders-meeting-room.webp";
-import hobbyRoom from "./assets/jayabheri-pinnacle-hobby-room.webp";
-import huddleRoom from "./assets/jayabheri-pinnacle-huddle-room.webp";
-import outdoorFitness from "./assets/jayabheri-pinnacle-outdoor-fitness.webp";
-import toddlerRoom from "./assets/jayabheri-pinnacle-toddler-room.webp";
-import tuitionRoom from "./assets/jayabheri-pinnacle-cloubhouse.webp";
-import volleyBall from "./assets/jayabheri-pinnacle-volly-ball.webp";
+import nirvanaMain from "./assets/jayabheri_nirvana.png";
+import nirvana1 from "./assets/jayabheri_nirvana_1.png";
+import nirvana2 from "./assets/jayabheri_nirvana_2.png";
+import nirvana3 from "./assets/jayabheri_nirvana_3.png";
+import nirvana4 from "./assets/jayabheri_nirvana_4.png";
+import nirvana5 from "./assets/jayabheri_nirvana_5.png";
 
-/* ================= EXTERNAL VIEW IMAGES ================= */
-import externalView from "./assets/jayabheri-pinnacle-external-view.webp";
-import externalView1 from "./assets/jayabheri-pinnacle-external-view-1.webp";
-import externalView2 from "./assets/jayabheri-pinnacle-external-view-2.webp";
-import externalView3 from "./assets/jayabheri-pinnacle-external-view-3.webp";
-import externalView4 from "./assets/jayabheri-pinnacle-external-view-4.webp";
-import externalDay from "./assets/jayabheri-pinnacle-external-view-day.webp";
-
-const galleryData = [
+const galleryImages = [
   {
-    id: "amenities",
-    label: "Amenities",
-    
-    images: [
-      { img: amphitheatre, title: "Amphitheatre" },
-      { img: coworkingLobby, title: "Co-working Lobby" },
-      { img: eldersMeeting, title: "Elders’ Meeting Room" },
-      { img: hobbyRoom, title: "Hobby Room" },
-      { img: huddleRoom, title: "Huddle Room" },
-      { img: outdoorFitness, title: "Outdoor Fitness Zone" },
-      { img: toddlerRoom, title: "Toddler Room" },
-      { img: tuitionRoom, title: "Clubhouse" },
-      { img: volleyBall, title: "Volleyball Court" },
-    ],
+    img: nirvana3,
+    title: "Recreation Spaces",
   },
   {
-    id: "external",
-    label: "External Views",
-    
-    images: [
-      { img: externalView1, title: "Tower View" },
-      { img: externalView2, title: "Elevation View" },
-      { img: externalView3, title: "High-Rise View" },
-      { img: externalView4, title: "Skyline View" },
-      { img: externalDay, title: "Day View" },
-    ],
+    img: nirvanaMain,
+    title: "The Nirvana Lifestyle",
+  },
+  {
+    img: nirvana1,
+    title: "Premium Amenities",
+  },
+  {
+    img: nirvana2,
+    title: "Clubhouse Experience",
+  },
+  
+  {
+    img: nirvana4,
+    title: "Wellness & Leisure",
+  },
+  {
+    img: nirvana5,
+    title: "Landscaped Living",
   },
 ];
 
 const GallerySection = () => {
-  const [selected, setSelected] = useState("amenities");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-
-  const activeTab = galleryData.find((item) => item.id === selected);
-  const images = activeTab.images;
-
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [selected]);
-
-  useEffect(() => {
-    if (lightboxOpen) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev === images.length - 1 ? 0 : prev + 1
-      );
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, [images.length, lightboxOpen]);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openLightbox = (index) => {
-    setCurrentIndex(index);
-    setLightboxOpen(true);
+    setSelectedIndex(index);
     document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
-    setLightboxOpen(false);
+    setSelectedIndex(null);
     document.body.style.overflow = "auto";
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
+    setSelectedIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
     );
   };
 
   const nextImage = () => {
-    setCurrentIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
+    setSelectedIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
     );
   };
 
-  const visibleImages = [
-    images[currentIndex],
-    images[(currentIndex + 1) % images.length],
-    images[(currentIndex + 2) % images.length],
-  ];
-
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!lightboxOpen) return;
+      if (selectedIndex === null) return;
 
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") prevImage();
@@ -114,182 +76,148 @@ const GallerySection = () => {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxOpen, images.length]);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedIndex]);
 
   return (
     <section
       id="gallery"
-      className="relative bg-gradient-to-b from-[#f4f9fa] via-white to-[#edf7f8] py-16 md:py-20 px-4 overflow-hidden"
+      className="relative bg-[#FFF7F7] py-16 md:py-24 px-4 overflow-hidden"
     >
-      <div className="absolute -top-28 -left-28 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-28 -right-28 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
+      {/* Background */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_top_left,#000_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      <div className="relative max-w-7xl mx-auto text-center">
-        <p className="text-sm uppercase tracking-[4px] text-[#0B5C63] font-semibold mb-3">
-          Project Gallery
-        </p>
+      <div className="absolute -top-40 -right-40 w-[420px] h-[420px] bg-[#E43E4C]/10 rounded-full blur-3xl" />
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061f24] mb-5">
-          Jayabheri The Pinnacle
-          <br />
-          <span className="text-[#0B5C63]">
-            Amenities & External Views
-          </span>
-        </h2>
+      <div className="relative max-w-7xl mx-auto">
 
-        <div className="w-24 h-[3px] bg-[#0B5C63] mx-auto rounded-full mb-6"></div>
+        {/* Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+          <p className="text-[#E43E4C] text-xs md:text-sm uppercase tracking-[5px] font-semibold">
+            Project Gallery
+          </p>
 
-        <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-600 leading-relaxed mb-10">
-          A visual glimpse into premium amenities, lifestyle spaces, iconic
-          architecture and luxury high-rise living at Kokapet, Hyderabad.
-        </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#181818] mt-3">
+            Experience
+            <span className="italic text-[#E43E4C]"> The Nirvana</span>
+          </h2>
 
-        <div className="flex justify-center gap-4 mb-8 flex-wrap">
-          {galleryData.map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => setSelected(id)}
-              className={`px-7 py-3 rounded-full text-sm font-semibold transition-all shadow-sm ${
-                selected === id
-                  ? "bg-[#0B5C63] text-white"
-                  : "bg-white text-[#061f24] border border-[#0B5C63]/20 hover:border-[#0B5C63] hover:text-[#0B5C63]"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+          <div className="w-20 h-[3px] bg-[#E43E4C] mx-auto mt-5 rounded-full" />
+
+          <p className="text-sm md:text-base text-gray-600 mt-5 leading-relaxed">
+            Discover thoughtfully designed lifestyle spaces, recreation zones
+            and premium amenities at Jayabheri The Nirvana.
+          </p>
         </div>
 
-        <p className="max-w-2xl mx-auto text-sm text-gray-500 mb-10">
-          {activeTab.description}
-        </p>
+        {/* Gallery */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <div className="relative">
-          <button
-            onClick={prevImage}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg text-[#061f24] items-center justify-center hover:bg-[#8ed9df] transition"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={28} />
-          </button>
-
-          <button
-            onClick={nextImage}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white shadow-lg text-[#061f24] items-center justify-center hover:bg-[#8ed9df] transition"
-            aria-label="Next slide"
-          >
-            <ChevronRight size={28} />
-          </button>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:px-16">
-            {visibleImages.map((item, index) => {
-              const actualIndex = (currentIndex + index) % images.length;
-
-              return (
-                <button
-                  key={`${selected}-${actualIndex}`}
-                  onClick={() => openLightbox(actualIndex)}
-                  className="relative overflow-hidden rounded-3xl shadow-lg group border border-[#0B5C63]/10 bg-white text-left"
-                >
-                  <img
-                    src={item.img}
-                    alt={`${item.title} - Jayabheri The Pinnacle Kokapet`}
-                    className="w-full h-[250px] md:h-[320px] object-cover transition duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#061f24]/85 via-[#061f24]/20 to-transparent" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-white font-semibold text-base md:text-lg">
-                      {item.title}
-                    </p>
-                    <p className="text-white/80 text-xs md:text-sm mt-1">
-                      Jayabheri The Pinnacle, Kokapet
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex md:hidden justify-center gap-4 mt-6">
-            <button
-              onClick={prevImage}
-              className="w-12 h-12 rounded-full bg-[#0B5C63] text-white flex items-center justify-center"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={28} />
-            </button>
-
-            <button
-              onClick={nextImage}
-              className="w-12 h-12 rounded-full bg-[#0B5C63] text-white flex items-center justify-center"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={28} />
-            </button>
-          </div>
-        </div>
-
-        <div className="flex justify-center gap-2 mt-8 flex-wrap">
-          {images.map((item, index) => (
+          {galleryImages.map((item, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
-              title={item.title}
-              className={`h-2.5 rounded-full transition-all ${
-                currentIndex === index
-                  ? "w-8 bg-[#0B5C63]"
-                  : "w-2.5 bg-gray-300 hover:bg-[#0B5C63]/60"
-              }`}
-              aria-label={`View ${item.title}`}
-            />
+              type="button"
+              onClick={() => openLightbox(index)}
+              className={`
+                group
+                relative
+                overflow-hidden
+                rounded-[1.5rem]
+                shadow-lg
+                bg-[#181818]
+                ${
+                  index === 0
+                    ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
+                    : ""
+                }
+              `}
+            >
+              <img
+                src={item.img}
+                alt={`${item.title} - Jayabheri The Nirvana`}
+                className={`
+                  w-full
+                  object-cover
+                  transition-transform
+                  duration-500
+                  group-hover:scale-105
+                  ${
+                    index === 0
+                      ? "h-[320px] md:h-[450px] lg:h-full min-h-[500px]"
+                      : "h-[240px] md:h-[270px]"
+                  }
+                `}
+                loading="lazy"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-left">
+                <p className="text-white font-serif font-semibold text-lg md:text-xl">
+                  {item.title}
+                </p>
+              </div>
+
+              {/* View icon */}
+              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 text-[#E43E4C] flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <Images size={18} />
+              </div>
+            </button>
           ))}
         </div>
       </div>
 
-      {lightboxOpen && (
+      {/* LIGHTBOX */}
+      {selectedIndex !== null && (
         <div className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center px-4">
+
+          {/* Close */}
           <button
             onClick={closeLightbox}
-            className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-[#061f24] flex items-center justify-center hover:bg-[#8ed9df] transition"
+            className="absolute top-5 right-5 z-20 w-11 h-11 rounded-full bg-white text-[#181818] flex items-center justify-center hover:bg-[#E43E4C] hover:text-white transition"
             aria-label="Close gallery"
           >
-            <X size={26} />
+            <X size={24} />
           </button>
 
+          {/* Previous */}
           <button
             onClick={prevImage}
-            className="absolute left-4 md:left-8 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/90 text-[#061f24] flex items-center justify-center hover:bg-[#8ed9df] transition"
+            className="absolute left-3 md:left-8 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/90 text-[#181818] flex items-center justify-center hover:bg-[#E43E4C] hover:text-white transition"
             aria-label="Previous image"
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft size={30} />
           </button>
 
-          <img
-            src={images[currentIndex].img}
-            alt={images[currentIndex].title}
-            className="max-w-[92vw] max-h-[82vh] object-contain rounded-2xl shadow-2xl"
-          />
+          {/* Image */}
+          <div className="text-center max-w-6xl">
+            <img
+              src={galleryImages[selectedIndex].img}
+              alt={galleryImages[selectedIndex].title}
+              className="max-w-[92vw] max-h-[82vh] object-contain rounded-xl shadow-2xl"
+            />
 
-          <button
-            onClick={nextImage}
-            className="absolute right-4 md:right-8 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/90 text-[#061f24] flex items-center justify-center hover:bg-[#8ed9df] transition"
-            aria-label="Next image"
-          >
-            <ChevronRight size={32} />
-          </button>
-
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-            <p className="text-white text-sm md:text-base font-semibold">
-              {images[currentIndex].title}
+            <p className="text-white text-base md:text-lg font-serif font-semibold mt-4">
+              {galleryImages[selectedIndex].title}
             </p>
-            <p className="text-white/60 text-xs mt-1">
-              {currentIndex + 1} / {images.length}
+
+            <p className="text-white/50 text-xs mt-1">
+              {selectedIndex + 1} / {galleryImages.length}
             </p>
           </div>
+
+          {/* Next */}
+          <button
+            onClick={nextImage}
+            className="absolute right-3 md:right-8 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/90 text-[#181818] flex items-center justify-center hover:bg-[#E43E4C] hover:text-white transition"
+            aria-label="Next image"
+          >
+            <ChevronRight size={30} />
+          </button>
         </div>
       )}
     </section>

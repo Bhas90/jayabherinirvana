@@ -1,27 +1,58 @@
 import React, { useState } from "react";
 import PopupForm from "./PopupForm";
-import { Building2, ArrowRight } from "lucide-react";
+import {
+  Building2,
+  ArrowRight,
+  Maximize2,
+  Home,
+} from "lucide-react";
+
+import blocksABDEPlan from "./assets/block-a-b-d-e.png";
+import blockCPlan from "./assets/block-c.png";
 
 const pricingRows = [
   {
-    tower: "Tower A",
-    configuration: "3.5 BHK Residences",
-    size: "3587 - 3678 SFT",
-    units: "Unit 1, 2, 3 & 4",
-    facing: "East & West Facing",
-    price: "₹5.25 Cr*",
-    description:
-      "Premium residences with large balconies, home office space and panoramic views.",
+    tower: "Blocks A, B, D & E",
+    price: "₹10,600 / SFT",
+    image: blocksABDEPlan,
+    imageAlt:
+      "Typical Floor Plan for Jayabheri The Nirvana Blocks A B D and E",
+    details: [
+      {
+        facing: "East",
+        configuration: "3 BHK",
+        size: "1920 SFT",
+      },
+      {
+        facing: "East",
+        configuration: "3 BHK",
+        size: "2190 SFT",
+      },
+      {
+        facing: "West",
+        configuration: "3.5 BHK",
+        size: "2225 SFT",
+      },
+    ],
   },
   {
-    tower: "Tower B",
-    configuration: "4.5 BHK Residences",
-    size: "4545 - 4622 SFT",
-    units: "Unit 1, 2, 3 & 4",
-    facing: "East & West Facing",
-    price: "₹6.65 Cr*",
-    description:
-      "Ultra-luxury residences designed for spacious family living and premium comfort.",
+    tower: "Block C",
+    price: "₹10,850 / SFT",
+    image: blockCPlan,
+    imageAlt:
+      "Typical Floor Plan for Jayabheri The Nirvana Block C",
+    details: [
+      {
+        facing: "East",
+        configuration: "3.5 BHK",
+        size: "2225 SFT",
+      },
+      {
+        facing: "West",
+        configuration: "3.5 BHK",
+        size: "2225 SFT",
+      },
+    ],
   },
 ];
 
@@ -29,8 +60,19 @@ const PricingSection = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedPriceType, setSelectedPriceType] = useState("");
 
-  const openPopup = (type) => {
-    setSelectedPriceType(type);
+  const openPopup = (tower) => {
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      event: "jayabheri_nirvana_price_request_click",
+      project_name: "Jayabheri The Nirvana",
+      project_location: "Financial District, Gachibowli",
+      block: tower,
+      lead_source: "Pricing Section",
+      page_url: window.location.href,
+    });
+
+    setSelectedPriceType(tower);
     setShowPopup(true);
   };
 
@@ -42,149 +84,217 @@ const PricingSection = () => {
   return (
     <section
       id="price"
-      className="relative bg-gradient-to-b from-white via-[#f4f9fa] to-[#edf7f8] py-16 md:py-20 px-4 overflow-hidden"
+      className="relative bg-gradient-to-br from-[#FFF7F7] via-white to-[#FDEBED] py-16 md:py-24 px-4 overflow-hidden"
     >
-      <div className="absolute -top-28 -left-28 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-28 -right-28 w-80 h-80 bg-[#0B5C63]/10 rounded-full blur-3xl" />
+      {/* Background */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_top_left,#000_1px,transparent_1px)] [background-size:24px_24px]" />
+
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#E43E4C]/15 rounded-full blur-3xl" />
+
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#7D1F29]/10 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
 
+        {/* Heading */}
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[4px] text-[#0B5C63] font-semibold mb-3">
-            Pricing & Availability
+          <p className="text-[#E43E4C] text-xs sm:text-sm uppercase tracking-[5px] font-semibold mb-3">
+            Pricing & Floor Plans
           </p>
 
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#061f24]">
-            Request Latest Price
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#111827]">
+            Choose Your
+            <span className="italic text-[#E43E4C]"> Residence</span>
           </h2>
 
-          <div className="w-24 h-[3px] bg-[#0B5C63] mx-auto mt-5 rounded-full"></div>
+          <div className="w-24 h-[3px] bg-[#E43E4C] mx-auto mt-5 rounded-full" />
 
-          <p className="max-w-3xl mx-auto text-gray-600 mt-6">
-            Get updated pricing, availability, floor plans, payment plans,
-            brochure and exclusive offers for Jayabheri The Pinnacle.
+          <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-600 mt-6 leading-relaxed">
+            Explore available 3 & 3.5 BHK residences at Jayabheri The Nirvana
+            with block-wise pricing, facing and floor-plan details.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 md:gap-8">
           {pricingRows.map((item, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#0B5C63]/10 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="
+                bg-white
+                rounded-[2rem]
+                overflow-hidden
+                border
+                border-[#E43E4C]/20
+                shadow-xl
+                hover:shadow-2xl
+                transition-all
+                duration-300
+              "
             >
-              <div className="bg-[#061f24] px-6 py-5">
-                <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-full bg-[#8ed9df]/10 flex items-center justify-center">
-                    <Building2 className="w-7 h-7 text-[#8ed9df]" />
-                  </div>
+              {/* Floor Plan Image */}
+              <div className="relative bg-white overflow-hidden group">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  className="
+                    w-full
+                    h-[350px]
+                    sm:h-[430px]
+                    object-contain
+                    p-4
+                    transition-transform
+                    duration-500
+                    group-hover:scale-[1.02]
+                  "
+                  loading="lazy"
+                />
 
-                  <div>
-                    <h3 className="text-white text-2xl font-bold">
-                      {item.tower}
-                    </h3>
-
-                    <p className="text-[#8ed9df] text-sm">
-                      {item.configuration}
-                    </p>
-                  </div>
-
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#111827]/90 text-white flex items-center justify-center">
+                  <Maximize2 size={18} />
                 </div>
               </div>
 
-              <div className="p-6">
+              {/* Card Header */}
+              <div className="bg-gradient-to-r from-[#171213] to-[#2A171A] px-6 py-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 
-                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-4 flex-1">
+                    <div className="w-14 h-14 rounded-full bg-[#E43E4C]/15 flex items-center justify-center shrink-0">
+                      <Building2 className="w-7 h-7 text-[#E43E4C]" />
+                    </div>
 
-                  <div className="bg-[#f4f9fa] rounded-2xl p-4">
-                    <p className="text-xs uppercase tracking-wide text-gray-500">
-                      Size
-                    </p>
+                    <div>
+                      <h3 className="text-white text-xl sm:text-2xl font-bold">
+                        {item.tower}
+                      </h3>
 
-                    <p className="text-[#061f24] font-bold mt-1">
-                      {item.size}
-                    </p>
-                  </div>
-
-                  <div className="bg-[#f4f9fa] rounded-2xl p-4">
-                    <p className="text-xs uppercase tracking-wide text-gray-500">
-                      Units
-                    </p>
-
-                    <p className="text-[#061f24] font-bold mt-1">
-                      {item.units}
-                    </p>
-                  </div>
-
-                  <div className="bg-[#f4f9fa] rounded-2xl p-4 col-span-2">
-                    <p className="text-xs uppercase tracking-wide text-gray-500">
-                      Facing
-                    </p>
-
-                    <p className="text-[#061f24] font-bold mt-1">
-                      {item.facing}
-                    </p>
-                  </div>
-
-                </div>
-
-                <p className="text-gray-600 text-sm leading-relaxed mt-5">
-                  {item.description}
-                </p>
-
-                <div className="mt-6 flex justify-between items-center">
-
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase">
-                      Starting From
-                    </p>
-
-                    <h4 className="text-3xl font-bold text-[#0B5C63]">
-                      {item.price}
-                    </h4>
+                      
+                    </div>
                   </div>
 
                   <button
-                    onClick={() => openPopup(item.configuration)}
-                    className="inline-flex items-center gap-2 bg-[#0B5C63] hover:bg-[#083E44] text-white px-6 py-3 rounded-full transition"
+                    onClick={() => openPopup(item.tower)}
+                    className="
+                      shrink-0
+                      inline-flex
+                      items-center
+                      justify-center
+                      gap-2
+                      bg-[#E43E4C]
+                      hover:bg-white
+                      hover:text-[#E43E4C]
+                      text-white
+                      px-5
+                      py-3
+                      rounded-full
+                      transition
+                      font-semibold
+                      shadow-md
+                    "
                   >
-                    Request Price
+                    Get Cost Sheet
                     <ArrowRight size={18} />
                   </button>
-
                 </div>
+              </div>
+
+              {/* Configuration Details */}
+              <div className="p-5 sm:p-6">
+                <div className="space-y-4">
+                  {item.details.map((detail, idx) => (
+                    <div
+                      key={idx}
+                      className="
+                        grid
+                        grid-cols-3
+                        gap-3
+                        rounded-2xl
+                        bg-[#FFF5F5]
+                        border
+                        border-[#E43E4C]/15
+                        p-4
+                        hover:border-[#E43E4C]/40
+                        transition
+                      "
+                    >
+                      {/* Facing */}
+                      <div>
+                        <p className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
+                          Facing
+                        </p>
+
+                        <p className="text-[#111827] text-sm sm:text-base font-bold mt-1">
+                          {detail.facing}
+                        </p>
+                      </div>
+
+                      {/* Configuration */}
+                      <div>
+                        <p className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
+                          Configuration
+                        </p>
+
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <Home
+                            size={15}
+                            className="text-[#E43E4C] hidden sm:block"
+                          />
+
+                          <p className="text-[#111827] text-sm sm:text-base font-bold">
+                            {detail.configuration}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Size */}
+                      <div>
+                        <p className="text-[10px] sm:text-[11px] uppercase tracking-wide text-gray-500">
+                          Size
+                        </p>
+
+                        <p className="text-[#111827] text-sm sm:text-base font-bold mt-1">
+                          {detail.size}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+               
               </div>
             </div>
           ))}
-
         </div>
 
-       
+        {/* Starting Price Highlight */}
+        
 
-        <div className="mt-8 p-5 rounded-2xl bg-[#f4f9fa] border border-[#0B5C63]/10">
-          <p className="text-sm text-gray-600 text-center leading-relaxed">
-            *Prices are indicative and subject to change without prior notice.
-            Final pricing depends on unit selection, floor, facing,
-            availability, applicable taxes and statutory charges.
+        {/* Disclaimer */}
+        <div className="mt-7 p-5 rounded-2xl bg-white border border-[#E43E4C]/20">
+          <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
+            *Indicative base pricing is calculated on the applicable per SFT
+            rate. Final property cost may vary depending on floor, unit,
+            facing, availability, applicable taxes, registration, amenities,
+            statutory charges and other charges.
           </p>
         </div>
-
       </div>
 
+      {/* Popup */}
       <PopupForm
         show={showPopup}
         onClose={closePopup}
         popupTitle={
           selectedPriceType
-            ? `Request Price - ${selectedPriceType}`
-            : "Request Price"
+            ? `Get Pricing - ${selectedPriceType}`
+            : "Get Jayabheri The Nirvana Pricing"
         }
         submitButtonText="Get Latest Pricing"
         leadSource={
           selectedPriceType
-            ? `Price Request - ${selectedPriceType}`
-            : "Jayabheri The Pinnacle Price Request"
+            ? `Jayabheri The Nirvana Price Request - ${selectedPriceType}`
+            : "Jayabheri The Nirvana Price Request"
         }
       />
     </section>

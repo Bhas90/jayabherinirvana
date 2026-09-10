@@ -6,104 +6,148 @@ import {
   Layers,
   Landmark,
   Crown,
+  Leaf,
+  Trees,
+  ParkingCircle,
 } from "lucide-react";
 
 const projectStats = [
   {
-    icon: <Crown className="w-7 h-7" />,
-    title: "₹5.25 Cr*",
-    subtitle: "Starting Price",
+    icon: <Crown className="w-6 h-6" />,
+    title: "Starting Price",
+    subtitle: "₹2.04 Cr* Onwards",
   },
   {
-    icon: <Home className="w-7 h-7" />,
-    title: "3.5 & 4.5 BHK",
-    subtitle: "Luxury Residences",
+    icon: <Home className="w-6 h-6" />,
+    title: "3 & 3.5 BHK",
+    subtitle: "Premium Residences",
   },
   {
-    icon: <Layers className="w-7 h-7" />,
-    title: "2692 - 4622 SFT",
+    icon: <Layers className="w-6 h-6" />,
+    title: "1920 - 2225 SFT",
     subtitle: "Spacious Homes",
   },
   {
-    icon: <Building2 className="w-7 h-7" />,
-    title: "2 Towers",
-    subtitle: "55 Floors",
+    icon: <Building2 className="w-6 h-6" />,
+    title: "5 Towers",
+    subtitle: "29 Floors",
   },
   {
-    icon: <Landmark className="w-7 h-7" />,
-    title: "4.75 Acres",
-    subtitle: "Premium Development",
+    icon: <Landmark className="w-6 h-6" />,
+    title: "7 Acres",
+    subtitle: "Gated Community",
   },
   {
-    icon: <MapPin className="w-7 h-7" />,
-    title: "Kokapet",
-    subtitle: "Hyderabad",
+    icon: <MapPin className="w-6 h-6" />,
+    title: "Financial District",
+    subtitle: "Near Wipro Junction",
   },
 ];
+
 
 const ProjectOverview = () => {
   return (
     <section
       id="project-overview"
-      className="relative bg-gradient-to-b from-[#f4f9fa] via-white to-[#edf7f8] py-16 overflow-hidden"
+      className="relative bg-[#FFF6F6] py-16 md:py-24 overflow-hidden"
     >
-      {/* Background Blur */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#0B5C63]/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#0B5C63]/10 rounded-full blur-3xl" />
+      {/* Editorial background */}
+      <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_top_left,#000_1px,transparent_1px)] [background-size:24px_24px]" />
+
+      <div className="absolute top-0 right-0 w-[340px] h-[340px] bg-[#E43E4C]/15 rounded-full blur-3xl" />
+
+      <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-[#821F2A]/10 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+        {/* Top editorial layout */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end mb-14">
+          <div className="lg:col-span-5">
+            <p className="text-[#E43E4C] text-xs md:text-sm uppercase tracking-[6px] font-semibold">
+              Project Overview
+            </p>
 
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <p className="text-[#0B5C63] text-xs md:text-sm uppercase tracking-[5px] font-semibold">
-            Project Overview
-          </p>
+            <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#181818] leading-tight">
+              Jayabheri
+              <br />
 
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#111111] mt-3">
-            Jayabheri The Pinnacle
-          </h2>
+              <span className="italic text-[#E43E4C]">
+                The Nirvana
+              </span>
+            </h2>
+          </div>
 
-          <div className="w-24 h-[3px] bg-[#0B5C63] mx-auto mt-5 rounded-full"></div>
+          <div className="lg:col-span-7">
+            <div className="border-l-4 border-[#E43E4C] pl-5 md:pl-7">
+              <p className="text-lg md:text-2xl font-serif italic text-[#821F2A] mb-3">
+                Taking Your Aspirations to New Zeniths
+              </p>
 
-          <p className="max-w-3xl mx-auto text-sm md:text-base text-gray-600 mt-6 leading-relaxed">
-            An iconic luxury high-rise development in Kokapet offering
-            panoramic skyline views, spacious residences, world-class
-            amenities and unmatched connectivity to Hyderabad's
-            Financial District.
-          </p>
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                Jayabheri The Nirvana is a premium residential community in
+                Hyderabad's Financial District, located approximately 1.6 km
+                from Wipro Junction on Q-City Road and adjacent to Jayabheri
+                Four Seasons. Spread across 7 acres with 79% open space, the
+                development comprises five 29-floor towers featuring 693
+                premium 3 & 3.5 BHK residences designed for elevated urban
+                living.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-[#E43E4C]/25 bg-white/80 backdrop-blur-sm shadow-xl">
           {projectStats.map((item, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl p-6 border border-[#0B5C63]/10 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-[#0B5C63]/30 transition-all duration-300"
+              className="
+                group
+                min-h-[150px]
+                p-5
+                md:p-6
+                border-b
+                md:border-b
+                lg:border-b-0
+                lg:border-r
+                border-[#E43E4C]/15
+                last:border-r-0
+                hover:bg-[#E43E4C]
+                transition-all
+                duration-300
+              "
             >
-              <div className="w-16 h-16 mx-auto rounded-full bg-[#0B5C63]/10 flex items-center justify-center text-[#0B5C63] mb-5 group-hover:bg-[#0B5C63] group-hover:text-white transition-all duration-300">
+              <div
+                className="
+                  w-12
+                  h-12
+                  rounded-full
+                  bg-[#FFF1F2]
+                  text-[#E43E4C]
+                  flex
+                  items-center
+                  justify-center
+                  mb-5
+                  group-hover:bg-white
+                  group-hover:text-[#E43E4C]
+                  transition-all
+                  duration-300
+                "
+              >
                 {item.icon}
               </div>
 
-              <h3 className="text-base md:text-lg font-bold text-[#111111] text-center">
+              <h3 className="text-base md:text-lg font-bold text-[#181818] group-hover:text-white">
                 {item.title}
               </h3>
 
-              <p className="text-xs md:text-sm text-gray-500 text-center mt-2">
+              <p className="text-xs md:text-sm text-gray-500 mt-2 group-hover:text-white/80">
                 {item.subtitle}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Highlight Bar */}
-        <div className="mt-10 rounded-3xl bg-gradient-to-r from-[#083E44] to-[#0B5C63] px-6 py-6 text-center shadow-xl">
-          <p className="text-white text-sm md:text-base font-medium leading-relaxed">
-            425 Vaastu-Compliant Residences • 4 Flats Per Floor •
-            75,000 SFT Premium Amenities • Unobstructed Panoramic Views •
-            Prime Kokapet Location
-          </p>
-        </div>
-
+        
       </div>
     </section>
   );

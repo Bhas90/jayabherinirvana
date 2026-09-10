@@ -9,11 +9,11 @@ import WhatsAppButton from "./WhatsAppButton";
 import PopupForm from "./PopupForm";
 import AttentionGrabberButton from "./AttentionGrabberButton";
 import StudyAbroad from "./StudyAbroad";
-import WhyChooseUs from "./WhyChooseUs";
+
 import FaqSection from "./FaqSection";
 import HeroBanner from "./HeroBanner";
 import GallerySection from "./GallerySection"
-import FloorPlans from "./FloorPlans"
+
 import DownloadBrochureButton from "./DownloadBrochureButton"
 import PricingSection from "./PricingSection";
 import LocationAdvantages from "./LocationAdvantages";
@@ -36,10 +36,7 @@ const Home = () => {
         <h2 className="section-heading"></h2>
         <ProjectOverview />
       </div>
-      <div id="why-ramky">
-        <h2 className="section-heading"></h2>
-        <WhyChooseUs />
-      </div>
+      
       <div id="amenities">
         <h2 className="section-heading"></h2>
         <AmenitiesSection />
@@ -47,7 +44,7 @@ const Home = () => {
       <GallerySection/>
       <DownloadBrochureButton/>
      
-      <FloorPlans/>
+      
        <PricingSection/>
       <div id="NRI-support">
         <h2 className="section-heading"></h2>
