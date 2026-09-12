@@ -45,12 +45,12 @@ const HeroBanner = () => {
     <>
       <section className="w-full mt-[80px] bg-[#161012] overflow-hidden">
 
-      {/* =====================================================
+    {/* =====================================================
     DESKTOP / TABLET HERO
 ===================================================== */}
-<div className="hidden md:block relative min-h-[600px] xl:min-h-[650px] bg-[#161012] overflow-hidden">
+<div className="hidden md:block relative h-[600px] xl:h-[650px] overflow-hidden bg-[#161012]">
 
-  {/* BACKGROUND IMAGE */}
+  {/* ORIGINAL IMAGE - NO OVERLAY */}
   <img
     src={desktopBanner}
     alt="Jayabheri The Nirvana luxury apartments near Wipro Junction, Financial District"
@@ -66,37 +66,52 @@ const HeroBanner = () => {
     fetchPriority="high"
   />
 
-  {/* VERY LIGHT OVERLAY ONLY ON RIGHT */}
-  <div className="absolute inset-0 bg-gradient-to-l from-black/65 via-black/20 to-transparent" />
-
   {/* CONTENT */}
-  <div className="relative z-10 min-h-[600px] xl:min-h-[650px] flex items-center">
+  <div className="relative z-10 h-full flex items-center">
     <div className="max-w-7xl mx-auto w-full px-5 lg:px-8 xl:px-12">
 
       <div className="flex justify-end">
-        <div className="w-full max-w-[520px] text-white">
 
+        {/* TRANSPARENT BG ONLY BEHIND CONTENT */}
+        <div
+          className="
+            w-full
+            max-w-[570px]
+            bg-black/45
+            backdrop-blur-[2px]
+            rounded-3xl
+            px-7
+            py-8
+            lg:px-9
+            lg:py-9
+            shadow-2xl
+          "
+        >
+
+          {/* HEADING */}
           <h1
             className="
               font-serif
               font-bold
               leading-[1.05]
-              text-[42px]
-              lg:text-[54px]
-              xl:text-[64px]
-              drop-shadow-lg
+              text-[40px]
+              lg:text-[52px]
+              xl:text-[60px]
+              text-white
             "
           >
             Taking Your
             <br />
+
             <span className="text-[#E43E4C]">
               Aspirations Higher
             </span>
           </h1>
 
+          {/* TAGLINE */}
           <p
             className="
-              mt-4
+              mt-3
               text-xl
               lg:text-2xl
               italic
@@ -107,47 +122,134 @@ const HeroBanner = () => {
             A Life Above the Ordinary
           </p>
 
-          {/* SIMPLE INFO ROW */}
-          <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm lg:text-base">
+          {/* STAT CARDS */}
+          <div className="grid grid-cols-3 gap-3 mt-7">
 
-            <div>
-              <span className="block text-[#E43E4C] font-bold text-lg">
+            {/* PRICE */}
+            <div
+              className="
+                bg-white/10
+                backdrop-blur-md
+                border
+                border-white/15
+                rounded-2xl
+                p-4
+                text-center
+              "
+            >
+              <h3
+                className="
+                  text-[#E43E4C]
+                  text-xl
+                  lg:text-2xl
+                  font-bold
+                "
+              >
                 ₹2.04 Cr*
-              </span>
-              <span className="text-white/75">
+              </h3>
+
+              <p
+                className="
+                  text-[9px]
+                  lg:text-[10px]
+                  uppercase
+                  tracking-widest
+                  mt-1
+                  text-white/80
+                "
+              >
                 Onwards
-              </span>
+              </p>
             </div>
 
-            <div>
-              <span className="block text-[#E43E4C] font-bold text-lg">
-                3 & 3.5 BHK
-              </span>
-              <span className="text-white/75">
-                Premium Homes
-              </span>
+
+            {/* BHK */}
+            <div
+              className="
+                bg-white/10
+                backdrop-blur-md
+                border
+                border-white/15
+                rounded-2xl
+                p-4
+                text-center
+              "
+            >
+              <h3
+                className="
+                  text-[#E43E4C]
+                  text-xl
+                  lg:text-2xl
+                  font-bold
+                "
+              >
+                3 & 3.5
+              </h3>
+
+              <p
+                className="
+                  text-[9px]
+                  lg:text-[10px]
+                  uppercase
+                  tracking-widest
+                  mt-1
+                  text-white/80
+                "
+              >
+                BHK Homes
+              </p>
             </div>
 
-            <div>
-              <span className="block text-[#E43E4C] font-bold text-lg">
+
+            {/* RESIDENCES */}
+            <div
+              className="
+                bg-white/10
+                backdrop-blur-md
+                border
+                border-white/15
+                rounded-2xl
+                p-4
+                text-center
+              "
+            >
+              <h3
+                className="
+                  text-[#E43E4C]
+                  text-xl
+                  lg:text-2xl
+                  font-bold
+                "
+              >
                 693
-              </span>
-              <span className="text-white/75">
+              </h3>
+
+              <p
+                className="
+                  text-[9px]
+                  lg:text-[10px]
+                  uppercase
+                  tracking-widest
+                  mt-1
+                  text-white/80
+                "
+              >
                 Residences
-              </span>
+              </p>
             </div>
 
           </div>
 
+
           {/* BUTTONS */}
-          <div className="mt-8 flex gap-3">
+          <div className="mt-6 flex gap-3">
 
             <button
               onClick={handleEnquiryClick}
               className="
                 bg-[#E43E4C]
                 text-white
-                px-7
+                px-8
                 py-3
                 text-sm
                 font-semibold
@@ -163,13 +265,14 @@ const HeroBanner = () => {
               Enquire Now
             </button>
 
+
             <button
               onClick={handleViewDetails}
               className="
                 border
                 border-white/70
                 text-white
-                px-7
+                px-8
                 py-3
                 text-sm
                 font-semibold
@@ -186,17 +289,27 @@ const HeroBanner = () => {
 
           </div>
 
-          <p className="text-[11px] text-white/55 mt-6 leading-relaxed">
+
+          {/* RERA */}
+          <p
+            className="
+              text-[11px]
+              text-white/65
+              mt-6
+              leading-relaxed
+            "
+          >
             TS RERA No: P02400003566
             <br />
             Images shown are for representation purposes only. T&C Apply.
           </p>
 
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
+
 </div>
 
         {/* =====================================================
