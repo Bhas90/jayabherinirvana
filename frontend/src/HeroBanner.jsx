@@ -45,190 +45,159 @@ const HeroBanner = () => {
     <>
       <section className="w-full mt-[80px] bg-[#161012] overflow-hidden">
 
-        {/* =====================================================
-            DESKTOP / TABLET HERO
-        ===================================================== */}
-        <div className="hidden md:block relative min-h-[600px] xl:min-h-[650px] bg-[#161012] overflow-hidden">
+      {/* =====================================================
+    DESKTOP / TABLET HERO
+===================================================== */}
+<div className="hidden md:block relative min-h-[600px] xl:min-h-[650px] bg-[#161012] overflow-hidden">
 
-          {/* BACKGROUND IMAGE */}
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={desktopBanner}
-              alt="Jayabheri The Nirvana luxury apartments near Wipro Junction, Financial District"
-              className="
-                absolute
-                left-0
-                top-0
-                w-full
-                h-full
-                object-cover
-                object-left-center
-              "
-              loading="eager"
-              fetchPriority="high"
-            />
-          </div>
+  {/* BACKGROUND IMAGE */}
+  <img
+    src={desktopBanner}
+    alt="Jayabheri The Nirvana luxury apartments near Wipro Junction, Financial District"
+    className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-cover
+      object-left-center
+    "
+    loading="eager"
+    fetchPriority="high"
+  />
 
-          {/* CONTENT */}
-          <div className="relative z-10 min-h-[600px] xl:min-h-[650px] flex items-center">
-            <div className="max-w-7xl mx-auto w-full px-5 lg:px-8 xl:px-12">
+  {/* VERY LIGHT OVERLAY ONLY ON RIGHT */}
+  <div className="absolute inset-0 bg-gradient-to-l from-black/65 via-black/20 to-transparent" />
 
-              <div className="flex justify-end">
+  {/* CONTENT */}
+  <div className="relative z-10 min-h-[600px] xl:min-h-[650px] flex items-center">
+    <div className="max-w-7xl mx-auto w-full px-5 lg:px-8 xl:px-12">
 
-                <div className="w-full max-w-[580px] py-10">
+      <div className="flex justify-end">
+        <div className="w-full max-w-[520px] text-white">
 
-                  {/* MAIN HEADING */}
-                  <h1
-                    className="
-                      font-serif
-                      font-bold
-                      leading-[1.04]
-                      text-[38px]
-                      lg:text-[52px]
-                      xl:text-[62px]
-                      text-[#E43E4C]
-                    "
-                  >
-                    Taking Your
-                    <br />
-                    Aspirations Higher
-                  </h1>
+          <h1
+            className="
+              font-serif
+              font-bold
+              leading-[1.05]
+              text-[42px]
+              lg:text-[54px]
+              xl:text-[64px]
+              drop-shadow-lg
+            "
+          >
+            Taking Your
+            <br />
+            <span className="text-[#E43E4C]">
+              Aspirations Higher
+            </span>
+          </h1>
 
-                  {/* TAGLINE */}
-                  <p
-                    className="
-                      mt-3
-                      text-xl
-                      lg:text-2xl
-                      italic
-                      font-serif
-                      text-[#E43E4C]
-                    "
-                  >
-                    A Life Above the Ordinary
-                  </p>
+          <p
+            className="
+              mt-4
+              text-xl
+              lg:text-2xl
+              italic
+              font-serif
+              text-white/90
+            "
+          >
+            A Life Above the Ordinary
+          </p>
 
-                  {/* STATS */}
-                  <div className="grid grid-cols-3 gap-3 mt-7">
+          {/* SIMPLE INFO ROW */}
+          <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm lg:text-base">
 
-                    <div
-                      className="
-                        border
-                        border-[#E43E4C]/50
-                        rounded-2xl
-                        p-4
-                        text-center
-                      "
-                    >
-                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
-                        ₹2.04 Cr*
-                      </h3>
-
-                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
-                        Onwards
-                      </p>
-                    </div>
-
-                    <div
-                      className="
-                        border
-                        border-[#E43E4C]/50
-                        rounded-2xl
-                        p-4
-                        text-center
-                      "
-                    >
-                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
-                        3 & 3.5
-                      </h3>
-
-                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
-                        BHK Homes
-                      </p>
-                    </div>
-
-                    <div
-                      className="
-                        border
-                        border-[#E43E4C]/50
-                        rounded-2xl
-                        p-4
-                        text-center
-                      "
-                    >
-                      <h3 className="text-[#E43E4C] text-xl lg:text-2xl font-bold">
-                        693
-                      </h3>
-
-                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
-                        Residences
-                      </p>
-                    </div>
-
-                  </div>
-
-                  {/* BUTTONS */}
-                  <div className="mt-6 flex flex-wrap gap-3">
-
-                    <button
-                      onClick={handleEnquiryClick}
-                      className="
-                        bg-[#E43E4C]
-                        text-white
-                        px-8
-                        py-3
-                        text-sm
-                        font-semibold
-                        uppercase
-                        tracking-wide
-                        hover:bg-white
-                        hover:text-[#E43E4C]
-                        transition-all
-                        duration-300
-                        shadow-lg
-                      "
-                    >
-                      Enquire Now
-                    </button>
-
-                    <button
-                      onClick={handleViewDetails}
-                      className="
-                        border
-                        border-[#E43E4C]
-                        text-[#E43E4C]
-                        px-8
-                        py-3
-                        text-sm
-                        font-semibold
-                        uppercase
-                        tracking-wide
-                        hover:bg-[#E43E4C]
-                        hover:text-white
-                        transition-all
-                        duration-300
-                      "
-                    >
-                      View Details
-                    </button>
-
-                  </div>
-
-                  {/* RERA */}
-                  <p className="text-[11px] text-[#E43E4C] mt-6 leading-relaxed">
-                    TS RERA No: P02400003566
-                    <br />
-                    Images shown are for representation purposes only. T&C Apply.
-                  </p>
-
-                </div>
-
-              </div>
-
+            <div>
+              <span className="block text-[#E43E4C] font-bold text-lg">
+                ₹2.04 Cr*
+              </span>
+              <span className="text-white/75">
+                Onwards
+              </span>
             </div>
-          </div>
-        </div>
 
+            <div>
+              <span className="block text-[#E43E4C] font-bold text-lg">
+                3 & 3.5 BHK
+              </span>
+              <span className="text-white/75">
+                Premium Homes
+              </span>
+            </div>
+
+            <div>
+              <span className="block text-[#E43E4C] font-bold text-lg">
+                693
+              </span>
+              <span className="text-white/75">
+                Residences
+              </span>
+            </div>
+
+          </div>
+
+          {/* BUTTONS */}
+          <div className="mt-8 flex gap-3">
+
+            <button
+              onClick={handleEnquiryClick}
+              className="
+                bg-[#E43E4C]
+                text-white
+                px-7
+                py-3
+                text-sm
+                font-semibold
+                uppercase
+                tracking-wide
+                hover:bg-white
+                hover:text-[#E43E4C]
+                transition-all
+                duration-300
+                shadow-lg
+              "
+            >
+              Enquire Now
+            </button>
+
+            <button
+              onClick={handleViewDetails}
+              className="
+                border
+                border-white/70
+                text-white
+                px-7
+                py-3
+                text-sm
+                font-semibold
+                uppercase
+                tracking-wide
+                hover:bg-white
+                hover:text-[#161012]
+                transition-all
+                duration-300
+              "
+            >
+              View Details
+            </button>
+
+          </div>
+
+          <p className="text-[11px] text-white/55 mt-6 leading-relaxed">
+            TS RERA No: P02400003566
+            <br />
+            Images shown are for representation purposes only. T&C Apply.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
         {/* =====================================================
             MOBILE HERO
