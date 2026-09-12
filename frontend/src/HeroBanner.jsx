@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import desktopBanner from "./assets/popupimg.png";
+import desktopBanner from "./assets/nirvana-banner.png";
 import mobileBanner from "./assets/Nirvana_mobile.jpg";
 import PopupForm from "./PopupForm";
 
@@ -63,48 +63,11 @@ const HeroBanner = () => {
                 h-full
                 object-cover
                 object-left-center
-                scale-[1.01]
               "
               loading="eager"
               fetchPriority="high"
             />
           </div>
-
-          {/* LEFT IMAGE VISIBILITY OVERLAY */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-r
-              from-black/5
-              via-transparent
-              to-black/85
-            "
-          />
-
-          {/* RIGHT DARK AREA FOR CONTENT */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-l
-              from-[#161012]/95
-              via-[#161012]/55
-              to-transparent
-            "
-          />
-
-          {/* BOTTOM DEPTH */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-black/55
-              via-transparent
-              to-black/5
-            "
-          />
 
           {/* CONTENT */}
           <div className="relative z-10 min-h-[600px] xl:min-h-[650px] flex items-center">
@@ -112,21 +75,9 @@ const HeroBanner = () => {
 
               <div className="flex justify-end">
 
-                <div className="w-full max-w-[580px] text-white py-10">
+                <div className="w-full max-w-[580px] py-10">
 
-                  <p
-                    className="
-                      text-[#E43E4C]
-                      text-sm
-                      uppercase
-                      tracking-[6px]
-                      font-semibold
-                      mb-4
-                    "
-                  >
-                    Jayabheri The Nirvana
-                  </p>
-
+                  {/* MAIN HEADING */}
                   <h1
                     className="
                       font-serif
@@ -135,6 +86,7 @@ const HeroBanner = () => {
                       text-[38px]
                       lg:text-[52px]
                       xl:text-[62px]
+                      text-[#E43E4C]
                     "
                   >
                     Taking Your
@@ -142,6 +94,7 @@ const HeroBanner = () => {
                     Aspirations Higher
                   </h1>
 
+                  {/* TAGLINE */}
                   <p
                     className="
                       mt-3
@@ -149,35 +102,19 @@ const HeroBanner = () => {
                       lg:text-2xl
                       italic
                       font-serif
-                      text-white/90
+                      text-[#E43E4C]
                     "
                   >
                     A Life Above the Ordinary
                   </p>
 
-                  <p
-                    className="
-                      mt-4
-                      text-base
-                      text-white/80
-                      leading-relaxed
-                      max-w-xl
-                    "
-                  >
-                    Premium 3 & 3.5 BHK residences across a 7-acre gated
-                    community with 79% open space, located just 1.6 km from
-                    Wipro Junction on Q-City Road.
-                  </p>
-
                   {/* STATS */}
-                  <div className="grid grid-cols-3 gap-3 mt-6">
+                  <div className="grid grid-cols-3 gap-3 mt-7">
 
                     <div
                       className="
-                        bg-white/10
-                        backdrop-blur-md
                         border
-                        border-white/15
+                        border-[#E43E4C]/50
                         rounded-2xl
                         p-4
                         text-center
@@ -187,26 +124,15 @@ const HeroBanner = () => {
                         ₹2.04 Cr*
                       </h3>
 
-                      <p
-                        className="
-                          text-[9px]
-                          lg:text-[10px]
-                          uppercase
-                          tracking-widest
-                          mt-1
-                          text-white/80
-                        "
-                      >
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
                         Onwards
                       </p>
                     </div>
 
                     <div
                       className="
-                        bg-white/10
-                        backdrop-blur-md
                         border
-                        border-white/15
+                        border-[#E43E4C]/50
                         rounded-2xl
                         p-4
                         text-center
@@ -216,26 +142,15 @@ const HeroBanner = () => {
                         3 & 3.5
                       </h3>
 
-                      <p
-                        className="
-                          text-[9px]
-                          lg:text-[10px]
-                          uppercase
-                          tracking-widest
-                          mt-1
-                          text-white/80
-                        "
-                      >
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
                         BHK Homes
                       </p>
                     </div>
 
                     <div
                       className="
-                        bg-white/10
-                        backdrop-blur-md
                         border
-                        border-white/15
+                        border-[#E43E4C]/50
                         rounded-2xl
                         p-4
                         text-center
@@ -245,16 +160,7 @@ const HeroBanner = () => {
                         693
                       </h3>
 
-                      <p
-                        className="
-                          text-[9px]
-                          lg:text-[10px]
-                          uppercase
-                          tracking-widest
-                          mt-1
-                          text-white/80
-                        "
-                      >
+                      <p className="text-[9px] lg:text-[10px] uppercase tracking-widest mt-1 text-[#E43E4C]">
                         Residences
                       </p>
                     </div>
@@ -309,21 +215,16 @@ const HeroBanner = () => {
                   </div>
 
                   {/* RERA */}
-                  <p
-                    className="
-                      text-[11px]
-                      text-white/60
-                      mt-6
-                      leading-relaxed
-                    "
-                  >
+                  <p className="text-[11px] text-[#E43E4C] mt-6 leading-relaxed">
                     TS RERA No: P02400003566
                     <br />
                     Images shown are for representation purposes only. T&C Apply.
                   </p>
 
                 </div>
+
               </div>
+
             </div>
           </div>
         </div>
@@ -362,35 +263,20 @@ const HeroBanner = () => {
               px-5
               pt-7
               pb-8
-              text-white
               text-center
-              bg-gradient-to-b
-              from-[#161012]
-              via-[#211619]
-              to-[#161012]
+              bg-[#161012]
               rounded-t-[30px]
             "
           >
 
-            <p
-              className="
-                text-[#E43E4C]
-                text-xs
-                uppercase
-                tracking-[4px]
-                font-semibold
-                mb-3
-              "
-            >
-              Jayabheri The Nirvana
-            </p>
-
+            {/* MAIN HEADING */}
             <h1
               className="
                 font-serif
                 font-bold
                 leading-[1.1]
                 text-[36px]
+                text-[#E43E4C]
               "
             >
               Taking Your
@@ -398,29 +284,17 @@ const HeroBanner = () => {
               Aspirations Higher
             </h1>
 
+            {/* TAGLINE */}
             <p
               className="
                 mt-4
                 text-lg
                 italic
                 font-serif
-                text-white/90
+                text-[#E43E4C]
               "
             >
               A Life Above the Ordinary
-            </p>
-
-            <p
-              className="
-                mt-5
-                text-sm
-                text-white/75
-                leading-relaxed
-              "
-            >
-              Premium 3 & 3.5 BHK residences across a 7-acre gated community
-              with 79% open space, just 1.6 km from Wipro Junction on Q-City
-              Road.
             </p>
 
 
@@ -429,9 +303,8 @@ const HeroBanner = () => {
 
               <div
                 className="
-                  bg-white/10
                   border
-                  border-white/15
+                  border-[#E43E4C]/50
                   rounded-2xl
                   p-4
                 "
@@ -446,7 +319,7 @@ const HeroBanner = () => {
                     uppercase
                     tracking-widest
                     mt-1
-                    text-white/80
+                    text-[#E43E4C]
                   "
                 >
                   Onwards
@@ -455,9 +328,8 @@ const HeroBanner = () => {
 
               <div
                 className="
-                  bg-white/10
                   border
-                  border-white/15
+                  border-[#E43E4C]/50
                   rounded-2xl
                   p-4
                 "
@@ -472,7 +344,7 @@ const HeroBanner = () => {
                     uppercase
                     tracking-widest
                     mt-1
-                    text-white/80
+                    text-[#E43E4C]
                   "
                 >
                   BHK Homes
@@ -481,9 +353,8 @@ const HeroBanner = () => {
 
               <div
                 className="
-                  bg-white/10
                   border
-                  border-white/15
+                  border-[#E43E4C]/50
                   rounded-2xl
                   p-4
                 "
@@ -498,7 +369,7 @@ const HeroBanner = () => {
                     uppercase
                     tracking-widest
                     mt-1
-                    text-white/80
+                    text-[#E43E4C]
                   "
                 >
                   Acres
@@ -507,9 +378,8 @@ const HeroBanner = () => {
 
               <div
                 className="
-                  bg-white/10
                   border
-                  border-white/15
+                  border-[#E43E4C]/50
                   rounded-2xl
                   p-4
                 "
@@ -524,7 +394,7 @@ const HeroBanner = () => {
                     uppercase
                     tracking-widest
                     mt-1
-                    text-white/80
+                    text-[#E43E4C]
                   "
                 >
                   Residences
@@ -585,7 +455,7 @@ const HeroBanner = () => {
             <p
               className="
                 text-[10px]
-                text-white/55
+                text-[#E43E4C]
                 mt-6
                 leading-relaxed
               "
@@ -601,7 +471,9 @@ const HeroBanner = () => {
       </section>
 
 
-      {/* POPUP FORM */}
+      {/* =====================================================
+          POPUP FORM
+      ===================================================== */}
       <PopupForm
         show={showPopup}
         onClose={() => setShowPopup(false)}
@@ -609,6 +481,7 @@ const HeroBanner = () => {
         submitButtonText="Submit Enquiry"
         leadSource="Jayabheri The Nirvana Hero Banner Enquiry"
       />
+
     </>
   );
 };
