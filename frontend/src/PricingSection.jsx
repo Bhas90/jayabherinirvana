@@ -173,29 +173,7 @@ const PricingSection = () => {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => openPopup(item.tower)}
-                    className="
-                      shrink-0
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-2
-                      bg-[#E43E4C]
-                      hover:bg-white
-                      hover:text-[#E43E4C]
-                      text-white
-                      px-5
-                      py-3
-                      rounded-full
-                      transition
-                      font-semibold
-                      shadow-md
-                    "
-                  >
-                    Check Availability
-                    <ArrowRight size={18} />
-                  </button>
+                 
                 </div>
               </div>
 
