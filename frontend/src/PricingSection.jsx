@@ -193,7 +193,7 @@ const PricingSection = () => {
                       shadow-md
                     "
                   >
-                    Get Cost Sheet
+                    Check Availability
                     <ArrowRight size={18} />
                   </button>
                 </div>
