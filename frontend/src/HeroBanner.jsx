@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import desktopBanner from "./assets/nirvana-banner.png";
+import desktopBanner from "./assets/popupimg.png";
 import mobileBanner from "./assets/Nirvana_mobile.jpg";
 import PopupForm from "./PopupForm";
 
