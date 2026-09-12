@@ -119,7 +119,7 @@ const HeroBanner = () => {
               text-white/90
             "
           >
-            A Life Above the Ordinary
+             <span className="text-[#E43E4C]">  A Life Above the Ordinary </span>
           </p>
 
           {/* STAT CARDS */}
