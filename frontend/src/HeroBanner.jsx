@@ -103,9 +103,9 @@ const HeroBanner = () => {
             Taking Your
             <br />
 
-            <span className="text-[#E43E4C]">
+            
               Aspirations Higher
-            </span>
+            
           </h1>
 
           {/* TAGLINE */}
