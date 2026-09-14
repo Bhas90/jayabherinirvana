@@ -353,7 +353,10 @@ const HeroBanner = () => {
               rounded-t-[30px]
             "
           >
-
+            {/* READY TO MOVE BADGE */}
+        <div className="inline-flex items-center bg-[#E43E4C] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-5 shadow-lg">
+          ● READY TO MOVE
+        </div>
             {/* MAIN HEADING */}
             <h1
               className="
