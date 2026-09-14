@@ -87,7 +87,10 @@ const HeroBanner = () => {
             shadow-2xl
           "
         >
-
+        {/* READY TO MOVE BADGE */}
+        <div className="inline-flex items-center bg-[#E43E4C] text-white px-5 py-2 rounded-full text-xs lg:text-sm font-bold uppercase tracking-widest mb-5 shadow-lg">
+          ● READY TO MOVE
+        </div>
           {/* HEADING */}
           <h1
             className="
@@ -145,7 +148,7 @@ const HeroBanner = () => {
                   font-bold
                 "
               >
-                ₹2.04 Cr*
+                ₹2.35 Cr*
               </h3>
 
               <p
@@ -392,7 +395,7 @@ const HeroBanner = () => {
                 "
               >
                 <h3 className="text-[#E43E4C] text-xl font-bold">
-                  ₹2.04 Cr*
+                  ₹2.35 Cr*
                 </h3>
 
                 <p
