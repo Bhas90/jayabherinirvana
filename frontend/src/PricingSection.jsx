@@ -172,7 +172,24 @@ const PricingSection = () => {
                       
                     </div>
                   </div>
-
+                  <div className="
+                      shrink-0
+                      inline-flex
+                      items-center
+                      justify-center
+                      bg-[#E43E4C]
+                      text-white
+                      px-5
+                      py-3
+                      rounded-full
+                      font-bold
+                      text-sm
+                      uppercase
+                      tracking-wide
+                      shadow-md
+                    ">
+                      ● READY TO MOVE
+                    </div>
                  
                 </div>
               </div>
