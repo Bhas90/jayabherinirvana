@@ -15,7 +15,7 @@ const projectStats = [
   {
     icon: <Crown className="w-6 h-6" />,
     title: "Starting Price",
-    subtitle: "₹2.04 Cr* Onwards",
+    subtitle: "₹2.35 Cr* Onwards",
   },
   {
     icon: <Home className="w-6 h-6" />,
